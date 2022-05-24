@@ -1,0 +1,27 @@
+{
+    "@context": {
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "earl": "http://www.w3.org/ns/earl#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "foaf:page": {
+        "@type": "@id"
+      }
+    },
+    "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+    "dcterms:rightsHolder": "https://www.w3.org",
+    "@type": "earl:TestCase",
+    "@id": "http://example.org/will_be_created_automatically_based",
+    "dc:coverage": "Manifest",
+    "dc:creator": ["Martin Alvarez"],
+    "dc:date": "2022-06-01",
+    "dc:title": "app_id is mandatory member in manifest.json",
+    "dc:identifier": "mnf-manifest-mandatory",
+    "dc:description": "manifest.json must contain an app_id member",
+    "dcterms:isReferencedBy": [
+      "https://www.w3.org/TR/epub-33/#spec-anchor",
+      "https://www.w3.org/TR/epub-rs-33/#spec-anchor"
+    ],
+    "dcterms:modified": "2022-06-01T00:00:00Z"
+}

@@ -1,0 +1,8 @@
+{
+    "name": "MiniApp Vendor",
+    "ref": "https://example.org/",
+    "variant" : "MiniApp Vendor #1",
+    "tests": {
+        "mnf-manifest-mandatory": true
+    }
+}
