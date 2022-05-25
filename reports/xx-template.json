@@ -2,6 +2,13 @@
     "name": "(Implementation's name)",
     "ref": "https://www.example.com",
     "tests": {
-        "mnf-manifest-mandatory": null
+        "cnt-css-support": null,
+        "mnf-window-fullscreen-default": null,
+        "mnf-window-fullscreen-true": null,
+        "mnf-window-orientation-default": null,
+        "mnf-window-orientation-landscape": null,
+        "mnf-window-orientation-portrait": null,
+        "pck-pages-same-filenames": null,
+        "pck-root-app-css-empty": null
     }
 }
