@@ -13,7 +13,7 @@
     "dcterms:rightsHolder": "https://www.w3.org",
     "@type": "earl:TestCase",
     "dc:coverage": "Packaging",
-    "belongs-to-collection": "may",
+    "dcterms:conformsTo": "may",
     "dc:creator": "Martin Alvarez",
     "dc:date": "2022-05-25",
     "dc:title": "Empty global app.css",

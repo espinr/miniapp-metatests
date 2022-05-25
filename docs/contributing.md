@@ -102,7 +102,7 @@ The root directory for each test must contain a `test.jsonld` file with the foll
   report. This should be used if the subject of the test is the value of `dc:title` itself (e.g., testing the base direction
   of the `title` element).
 
-* `belongs-to-collection` (optional): The value is `must`, `should`, or `may`, and it specifies whether the test corresponds to a _MUST_ (or _MUST NOT_), _SHOULD_ (or _SHOULD NOT_), or _MAY_ (or _MAY NOT_) statement in the specification, respectively. If the metadata is not provided, or any other value is used, the default `must` value is used. 
+* `dcterms:conformsTo` (optional): The value is `must`, `should`, or `may`, and it specifies whether the test corresponds to a _MUST_ (or _MUST NOT_), _SHOULD_ (or _SHOULD NOT_), or _MAY_ (or _MAY NOT_) statement in the specification, respectively. If the metadata is not provided, or any other value is used, the default `must` value is used. 
 
 * `dcterms:rights` as part of a `link` element: the rights associated with the test. Except for the rare cases the `href` attribute value should be set to `https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document` (i.e., to the W3C Software and Document Notice and License).
 
@@ -128,7 +128,7 @@ Example of `test.jsonld` document:
     "@type": "earl:TestCase",
     "dc:coverage": "Manifest",
     "dc:creator": ["Jane Doe"],
-    "belongs-to-collection": "must",
+    "dcterms:conformsTo": "must",
     "dc:date": "2022-05-25",
     "dc:title": "Fullscreen enabled in manifest",
     "dc:identifier": "mnf-window-fullscreen-true",
@@ -140,7 +140,7 @@ Example of `test.jsonld` document:
 }
 ```
 
-(Note that, in this case, the `belongs-to-collection` property is not necessary, because that corresponds to the default value; it is only there as an example.)
+(Note that, in this case, the `dcterms:conformsTo` property is not necessary, because that corresponds to the default value; it is only there as an example.)
 
 
 ## Implementation reports

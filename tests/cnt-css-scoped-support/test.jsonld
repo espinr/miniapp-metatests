@@ -13,7 +13,7 @@
   "dcterms:rightsHolder": "https://www.w3.org",
   "@type": "earl:TestCase",
   "dc:coverage": "Content",
-  "belongs-to-collection": "must",
+  "dcterms:conformsTo": "must",
   "dc:creator": "Martin Alvarez",
   "dc:date": "2022-05-21",
   "dc:title": "Acid2 test",

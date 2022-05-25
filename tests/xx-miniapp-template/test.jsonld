@@ -13,7 +13,7 @@
   "dcterms:rightsHolder": "https://www.w3.org",
   "@type": "earl:TestCase",
   "dc:coverage": "TODO: Report Category",
-  "belongs-to-collection": "must",
+  "dcterms:conformsTo": "must",
   "dc:creator": "TODO: Your Name",
   "dc:date": "TODO: 2022-06-01",
   "dc:title": "TODO: Concise test title",

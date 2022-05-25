@@ -272,7 +272,7 @@ async function get_test_metadata(dir_name: string): Promise<TestData[]> {
         }
 
         const get_required = (metadata: any): ReqType => {
-            const is_set = get_single_meta_value("belongs-to-collection", metadata);
+            const is_set = get_single_meta_value("dcterms:conformsTo", metadata);
             if (is_set === undefined) {
                 return "must";
             } else {
