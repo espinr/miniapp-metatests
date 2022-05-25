@@ -276,7 +276,7 @@ async function get_test_metadata(dir_name: string): Promise<TestData[]> {
             if (is_set === undefined) {
                 return "must";
             } else {
-                const val: string = (<string>is_set._).toLowerCase();
+                const val: string = (<string>is_set).toLowerCase();
                 switch (val) {
                 case "must":
                 case "should":
