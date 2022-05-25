@@ -12,16 +12,15 @@
   "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
   "dcterms:rightsHolder": "https://www.w3.org",
   "@type": "earl:TestCase",
-  "dc:coverage": "TODO: Report Category",
+  "dc:coverage": "Content",
   "belongs-to-collection": "must",
-  "dc:creator": "TODO: Your Name",
-  "dc:date": "TODO: 2022-06-01",
-  "dc:title": "TODO: Concise test title",
-  "dc:identifier": "TODO: test-id",
-  "dc:description": "TODO: A description of the test for the generated test report.",
+  "dc:creator": "Martin Alvarez",
+  "dc:date": "2022-05-21",
+  "dc:title": "Acid2 test",
+  "dc:identifier": "cnt-css-support",
+  "dc:description": "Recreation of the Acid2 test to check the CSS support.",
   "dcterms:isReferencedBy": [
-    "TODO: https://www.w3.org/TR/epub-33/#spec-anchor",
-    "TODO: https://www.w3.org/TR/epub-rs-33/#spec-anchor"
+    "https://www.w3.org/TR/miniapp-packaging/#sec-miniapp-resources-css"
   ],
-  "dcterms:modified": "TODO: 2021-01-01T00:00:00Z"
+  "dcterms:modified": "2022-05-21T00:00:00Z"
 }

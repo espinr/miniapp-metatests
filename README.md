@@ -12,4 +12,4 @@ The [test reports](https://w3c.github.io/miniapp-tests/) describe all the tests,
 
 ## Acknowledgements
 
-This testing methodology is based on the [EPUB tests](https://w3c.github.io/epub-tests/), generated and maintained by the [EPUB 3 Working Group](https://www.w3.org/publishing/groups/epub-wg/).
+This testing methodology is based on the [EPUB tests](https://w3c.github.io/epub-tests/), generated and maintained by the [EPUB 3 Working Group](https://www.w3.org/publishing/groups/epub-wg/). So, a big thanks to [Ivan Herman](https://www.w3.org/People/Ivan/), Dan Lazin, and the rest of [the group](https://www.w3.org/publishing/groups/epub-wg/).

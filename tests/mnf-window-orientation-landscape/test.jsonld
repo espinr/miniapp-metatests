@@ -12,16 +12,14 @@
     "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
     "dcterms:rightsHolder": "https://www.w3.org",
     "@type": "earl:TestCase",
-    "@id": "http://example.org/will_be_created_automatically_based",
     "dc:coverage": "Manifest",
     "dc:creator": ["Martin Alvarez"],
-    "dc:date": "2022-06-01",
-    "dc:title": "app_id is mandatory member in manifest.json",
-    "dc:identifier": "mnf-manifest-mandatory",
-    "dc:description": "manifest.json must contain an app_id member",
+    "dc:date": "2022-05-25",
+    "dc:title": "Landscape orientation defined in manifest",
+    "dc:identifier": "mnf-window-orientation-landscape",
+    "dc:description": "The window's orientation member is set to landscape in the manifest. The app display must be in landscape mode.",
     "dcterms:isReferencedBy": [
-      "https://www.w3.org/TR/epub-33/#spec-anchor",
-      "https://www.w3.org/TR/epub-rs-33/#spec-anchor"
+      "https://www.w3.org/TR/miniapp-manifest/#dfn-process-the-window-s-orientation-member"
     ],
-    "dcterms:modified": "2022-06-01T00:00:00Z"
+    "dcterms:modified": "2022-05-25T00:00:00Z"
 }

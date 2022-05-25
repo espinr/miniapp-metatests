@@ -21,5 +21,8 @@
     "min_code": 1,
     "release_type": "Beta",
     "target_code": 1
-  }		  
+  },
+  "window": {
+    "orientation": "portrait"
+  }    
 }
