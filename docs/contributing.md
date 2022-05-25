@@ -4,109 +4,61 @@ layout: page
 
 ![W3C Logo](https://www.w3.org/Icons/w3c_home)
 
+_Based on the [EPUB testing methodology and code](#acknowledgements)._
+
+
 # Writing tests for MiniApp
 
-The [espinr/miniapp-tests/](https://github.com/espinr/miniapp-tests/) repository contains tests to validate the implementability of the
-W3C's MiniApp specifications, specifically core [MiniApp](https://www.w3.org/TR/epub-33/) (the spec for the MiniApp format
-itself) and [MiniApp Reading Systems 3.3](https://www.w3.org/TR/epub-rs-33/) (the spec for applications that read MiniApp files).
-Our objective is to test every normative statement (that is, every
-[`MUST` or `SHOULD` or `MAY`](https://datatracker.ietf.org/doc/html/bcp14), etc.).
+This repository contains tests to validate the implementations of the W3C's MiniApp specifications, specifically [MiniApp Packaging](https://www.w3.org/TR/miniapp-packaging/) (the spec for the MiniApp format itself), [MiniApp Manifest](https://www.w3.org/TR/miniapp-manifest/) (the spec to define a MiniApp and its configuration), and [MiniApp Lifecycle](https://www.w3.org/TR/miniapp-lifecycle/) (the spec that defines the events and APIs to control the execution lifecycle of a MiniApp). Our
+objective is to test every normative statement (that is, every
+[`MUST` or `SHOULD` or `MAY`](https://datatracker.ietf.org/doc/html/bcp14), etc.). 
 
 Existing tests are described in the [generated test reports](#generated-test-reports).
 
 This page explains how to write new tests.
 
-
 ## Prerequisites
 
-* Install [eCanCrusher](https://www.docdataflow.com/ecancrusher/) or another utility or local script that can turn an MiniApp
-  folder into a compressed MiniApp file.
+* Install any utility or local script that can turn an MiniApp folder into a ZIP-compressed MiniApp file.
    
-   * On macOS, a command in Terminal can zip MiniApp. Go to the folder containing the files and enter the following:
-   `zip -X0 book.epub mimetype; zip -Xur9D book.epub META-INF OEBPS -x ‘*.DS_Store’ `
+* Ensure you have several MiniApp user agents available to validate your tests (that is, validate that you have written the
+  test correctly; many tests will nonetheless fail in individual reading systems).
 
-* Ensure you have several MiniApp reading systems available to validate your tests (that is, validate that you have written the
-  test correctly; many tests will nonetheless fail in individual reading systems). For example:
-
-  * Apple Books (preinstalled on macOS)
-
-  * [calibre](https://calibre-ebook.com/download)
-
-  * [MiniAppReader for Chrome](https://chrome.google.com/webstore/detail/epubreader/jhhclmfgfllimlhabjkgkeebkbiadflb)
-
-  * [MiniAppReader for Firefox](https://addons.mozilla.org/en-US/firefox/addon/epubreader/)
-
-  * [Google Play Books for the web](https://play.google.com/books/uploads/ebooks) (uploads here will appear on other devices
-    where you're signed into the same Google account)
-
-  * [Kindle Previewer](https://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765261)
-
-  * [Kobo Books](https://www.kobo.com/ca/en/p/apps) and [instructions for sideloading](https://github.com/kobolabs/epub-spec#sideloading-for-testing-purposes)
-
-  * [Thorium Reader](https://www.edrlab.org/software/thorium-reader/)
-
-  * [VitalSource Bookshelf](https://support.vitalsource.com/hc/en-us/sections/360002383594-Download-Bookshelf) and [instructions for sideloading](https://support.vitalsource.com/hc/en-us/search?utf8=✓&query=side+loading+epubs)
-
+TODO: List the MiniApp user agents. 
 
 
 ## Step-by-step
 
-1. Find an untested normative statement in the [MiniApp](https://w3c.github.io/epub-specs/epub33/core/) or
-   [MiniApp Reading Systems 3.3](https://w3c.github.io/epub-specs/epub33/rs/) specs to test — that is, a statement that does not
-   have an expandable "tests" section like
-   [Core Media Types](https://w3c.github.io/epub-specs/epub33/rs/#sec-epub-rs-conf-cmt). (Note that these links point at the
-   working drafts of the spec on GitHub, not the published versions on w3.org; the published spec hides the "tests" sections.
-   In the published versions, you can still see whether a statement is tested by checking whether its anchor element has a
-   `data-tests` attribute.)
+1. Find an untested normative statement in the MiniApp specifications ([MiniApp Packaging](https://w3c.github.io/miniapp-packaging/), [MiniApp Manifest](https://w3c.github.io/TR/miniapp-manifest/), and [MiniApp Lifecycle](https://w3c.github.io/TR/miniapp-lifecycle/)) specs to test — that is, a statement that does not have an expandable "tests" section. (Note that these links point at the working drafts of the spec on GitHub, not the published versions on w3.org; the published spec hides the "tests" sections. In the published versions, you can still see whether a statement is tested by checking whether its anchor element has a `data-tests` attribute.)
 
 1. Claim the normative statement by [creating an issue](https://github.com/espinr/miniapp-tests/issues/new) in the
-   [espinr/miniapp-tests](https://github.com/espinr/miniapp-tests/) repo. For example, see the issue
-   [Test obfuscated resources (fonts)](https://github.com/espinr/miniapp-tests/issues/39).
+   [w3c/miniapp-tests](https://github.com/espinr/miniapp-tests/) repo.
 
-1. If you are an owner of [espinr/miniapp-tests](https://github.com/espinr/miniapp-tests/), create a branch on that repo for your new
+1. If you are an owner of [w3c/miniapp-tests](https://github.com/espinr/miniapp-tests/), create a branch on that repo for your new
    test. Otherwise, fork the repo and create a branch on your fork. (It's easier for reviewers to clone a PR to validate the
    test if it's in the original repo.)
 
-1. Within the branch, copy the [test template](https://github.com/espinr/miniapp-tests/tree/main/tests/xx-epub-template)
-   (or the [fixed layout template](https://github.com/espinr/miniapp-tests/tree/main/tests/xx-fixed-layout-template) if you're
-   testing fixed layout). Name your copy as explained in [naming](#naming) below.
+1. Within the branch, copy the [test template](https://github.com/espinr/miniapp-tests/tree/main/tests/xx-miniapp-template). Name your copy as explained in [naming](#naming) below.
 
 1. Modify the template as necessary to implement the test.
 
 1. Describe the test by adding the [metadata](#metadata) documented below to the package document.
 
-1. Once your test is complete, drag the test's folder onto [eCanCrusher](https://www.docdataflow.com/ecancrusher/) to
-   compress it into an MiniApp file, or create a compressed MiniApp file by some other means.
+1. Once your test is complete, compress the full directory into an MiniApp ZIP file.
 
-1. Open the MiniApp file in one or more reading systems to verify it behaves as expected. It is common for reading systems
-   not to meet requirements, but if you cannot find *any* reading system that processes the test as expected, that may
-   indicate an implementation mistake in the test. Fix as necessary.
-
-1. Run the MiniApp through [MiniAppCheck](https://www.w3.org/publishing/epubcheck/) to ensure you didn't make any silly mistakes.
-   Fix if you did.
+1. Open the MiniApp file in one or more MiniApp user agents to verify it behaves as expected. Fix as necessary.
 
 1. Create a pull request for your test change, including both the uncompressed folder and the compressed MiniApp file. Please
    ensure the PR's description clearly indicates which statement is being tested. Await review.
 
-1. Once the pull request has been merged, fork the repo for the spec you are testing —
-   [MiniApp](https://github.com/w3c/epub-specs/blob/main/epub33/core/index.html) or
-   [MiniApp Reading Systems 3.3](https://github.com/w3c/epub-specs/blob/main/epub33/rs/index.html).
+1. Once the pull request has been merged, fork the repo for the spec you are testing (i.e., [MiniApp Packaging](https://w3c.github.io/miniapp-packaging/), [MiniApp Manifest](https://w3c.github.io/TR/miniapp-manifest/), or [MiniApp Lifecycle](https://w3c.github.io/TR/miniapp-lifecycle/)).
 
 1. In the spec document, find the anchor element for the normative statement. If there is no anchor element, add one, using
    the same naming conventions as nearby anchors. Then add a `data-tests` attribute to the anchor element with the name(s) of
    your test(s) as comma-separated anchors:
 
    ```html
-   <p id="confreq-rs-epub3-xhtml" class="support" data-tests="#doc-xhtml-support">Reading Systems MUST process
-      <a href="https://www.w3.org/TR/epub-33/#sec-xhtml">XHTML Content Documents</a> [[MiniApp-33]].</p>
-
-   ...
-
-   <p id="confreq-rs-epub3-images"
-      data-tests="#pub-cmt-gif,#pub-cmt-jpg,#pub-cmt-png,#pub-cmt-svg,#pub-cmt-webp">If a Reading System has a
-      <a>Viewport</a>, it MUST support the
-      <a href="https://www.w3.org/TR/epub-33/#cmt-grp-image">image Core Media Type Resources</a>
-      [[MiniApp-33]].</p>
+   <li data-tests="#pkg-filesystem-root-pages,#pkg-filesystem-root-common">The file system of a package MUST have a file structure based on a root directory....</li>
    ```
 
 1. Create a pull request for your spec change and await review.
@@ -115,21 +67,15 @@ This page explains how to write new tests.
 ## Naming
 
 Test names should start with a three-letter abbreviation that corresponds to the value of the [`dc:coverage`](#metadata)
-element below (for example, `cnt` for Content Documents, `pkg` for Package Documents, etc.), followed by a short hyphenated
-identifier that makes clear which requirement is under test. For example, a test for
-[the requirement for reading systems to support MathML](https://www.w3.org/TR/epub-rs-33/#confreq-mathml-rs-behavior) should
-be named `cnt-mathml-support`.
+element below (for example, `cnt` for content of MiniApps, `pkg` for Packaging, etc.), followed by a short hyphenated
+identifier that makes clear which requirement is under test. 
 
 If multiple tests are necessary for a single normative statement, differentiate the test cases by appending an underscore and
-a unique identifier. For example, a test that ensures reading systems treat explicit `dir="auto"` identically to omitting
-`dir`, as part of the requirement to
-[automatically handle base direction of the package document](https://www.w3.org/TR/epub-rs-33/#confreq-rs-pkg-dir-auto)
-might be named `pkg-dir-auto_explicit`.
-
+a unique identifier. 
 
 ## Metadata
 
-The package document for each test must contain the following metadata, which is used to
+The root directory for each test must contain a `test.jsonld` file with the following metadata, which is used to
 [generate test reports](#generated-test-reports):
 
 * `dc:identifier`: A unique identifier for the test (unique across _all_ tests). This is typically the test’s directory name.
@@ -138,7 +84,7 @@ The package document for each test must contain the following metadata, which is
 * `dc:title`: The title of the test, in sentence case. It is used in the test description and should be as concise as
   possible.
 
-* `dc:creator` (may be repeated): Creator(s) of the tests.
+* `dc:creator` (a list): Creator(s) of the tests.
 
 * `dc:description`: A longer description of the test for the generated test report.
 
@@ -148,48 +94,53 @@ The package document for each test must contain the following metadata, which is
    value, edit that JSON file in the same pull request to add the new value under the `coverage_labels`. That list should
    reflect the order of the corresponding sections in the MiniApp specification.
 
-* `dcterms:isReferencedBy` (repeated, as part of a `meta` element): A series of URLs that refer to the relevant sections of
+* `dcterms:isReferencedBy` (a list): A series of URLs that refer to the relevant sections of
    the specification. These links provide back-links to the relevant normative statements from each test entry in the
    generated report.
 
-* `dcterms:alternative` (optional, as part of a `meta` element): Overrides the value of `dc:title` in the generated test
+* `dcterms:alternative` (optional): Overrides the value of `dc:title` in the generated test
   report. This should be used if the subject of the test is the value of `dc:title` itself (e.g., testing the base direction
   of the `title` element).
 
-* `belongs-to-collection` (optional, as part of a `meta` element): The value is `must`, `should`, or `may`, and it specifies whether the test corresponds to a _MUST_ (or _MUST NOT_), _SHOULD_ (or _SHOULD NOT_), or _MAY_ (or _MAY NOT_) statement in the specification, respectively. If the metadata is not provided, or any other value is used, the default `must` value is used. 
+* `belongs-to-collection` (optional): The value is `must`, `should`, or `may`, and it specifies whether the test corresponds to a _MUST_ (or _MUST NOT_), _SHOULD_ (or _SHOULD NOT_), or _MAY_ (or _MAY NOT_) statement in the specification, respectively. If the metadata is not provided, or any other value is used, the default `must` value is used. 
 
 * `dcterms:rights` as part of a `link` element: the rights associated with the test. Except for the rare cases the `href` attribute value should be set to `https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document` (i.e., to the W3C Software and Document Notice and License).
 
 * `dcterms:rightsHolder` as part of a `link` element: the holder of the rights expressed by `dcterms:rights`. The `href` attribute value should be set to `https://www.w3.org/` in case the the rights value is set to the W3C Software and Document Notice and License, otherwise to a URL identifying the right holder.
 
 
-In this example, only the relevant metadata items are shown (a test may have additional, test-specific metadata items):
+Example of `test.jsonld` document:
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<package xmlns="http://www.idpf.org/2007/opf" xmlns:epub="http://www.idpf.org/2007/ops" version="3.0" xml:lang="en" unique-identifier="pub-id">
-    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-        <dc:coverage>Internationalization</dc:coverage>
-        <dc:creator>Dan Lazin</dc:creator>
-        <dc:creator>Ivan Herman</dc:creator>
-        <dc:description>
-            The 'dc:title' element contains text whose proper rendering requires bidi control. The element's 'dir' attribute
-            is set to 'rtl'; the title should display from right to left.
-        </dc:description>
-        <dc:identifier id="pub-id">pkg-dir_rtl-root-unset</dc:identifier>
-        <dc:title dir="rtl" xml:lang="he">CSS: הרפתקה חדשה!</dc:title>
-        <link rel="dcterms:rights" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document"/>
-        <link rel="dcterms:rightsHolder" href="https://www.w3.org"/>
-        <meta property="dcterms:alternative">Title's base direction set to RTL</meta>
-        <meta property="belongs-to-collection">must</meta>
-        <meta property="dcterms:isReferencedBy">https://www.w3.org/TR/epub-33/#attrdef-dir</meta>
-        <meta property="dcterms:isReferencedBy">https://www.w3.org/TR/epub-rs-33/#confreq-rs-pkg-dir</meta>
-    </metadata>
-    ...
- </package>
+```json
+{
+    "@context": {
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "earl": "http://www.w3.org/ns/earl#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "foaf:page": {
+        "@type": "@id"
+      }
+    },
+    "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+    "dcterms:rightsHolder": "https://www.w3.org",
+    "@type": "earl:TestCase",
+    "dc:coverage": "Manifest",
+    "dc:creator": ["Jane Doe"],
+    "belongs-to-collection": "must",
+    "dc:date": "2022-05-25",
+    "dc:title": "Fullscreen enabled in manifest",
+    "dc:identifier": "mnf-window-fullscreen-true",
+    "dc:description": "The window's fullscreen member is set to true in the manifest. The app must be shown in fullscreen.",
+    "dcterms:isReferencedBy": [
+      "https://www.w3.org/TR/miniapp-manifest/#dfn-process-the-window-s-fullscreen-member"
+    ],
+    "dcterms:modified": "2022-05-25T00:00:00Z"
+}
 ```
 
-(Note that, in this case, the `<meta property="belongs-to-collection">must</meta>` is not necessary, because that corresponds to the default value; it is only there as an example.)
+(Note that, in this case, the `belongs-to-collection` property is not necessary, because that corresponds to the default value; it is only there as an example.)
 
 
 ## Implementation reports
@@ -197,31 +148,32 @@ In this example, only the relevant metadata items are shown (a test may have add
 The `reports` directory contains implementation reports in form of JSON files, one per reading system. The structure of the
 JSON file is as follows:
 
-* `name`: The name of the reading system.
+* `name`: The name of the MiniApp vendor.
 
-* `variant` (optional): The name of the reading system variant. Typical values may be `Android,` `iOS`, or `Web`, if one
+* `variant` (optional): The name of the MiniApp version variant. Typical values for super-app may be `Android,` `iOS`, or `Web`, if one
   implementation (i.e., sharing the same `name` value) has specific versions running in those environments.
 
-* `ref` (optional): A URL that creates a link on the name of the reading system in the implementation report.
+* `ref` (optional): A URL that creates a link on the name of the MiniApp implementation in the implementation report.
 
 * `tests`: An object with the implementation results. Each key is a test's unique identifier (its `dc:identifier`) with a
-  values of `true`, `false`, or `null` for tests that pass, fail, or not tested, respectively. If a test is not listed, or its value is `null`, the implementation report will show a value of N/A, indicating that the implementation has not run the test.
+  values of `true`, `false`, or `null` for tests that pass, fail, or not tested, respectively. If a test is not listed, or its value is `null`, the implementation report will show a value of `N/A`, indicating that the implementation has not run the test.
 
 Here is an example of a small test report:
 
 ```json
 {
-    "name"  : "ACME Books",
-    "ref"   : "https://www.example.org/acme",
-    "tests" : {
-        "pub-cmt-gif": true,
-        "pub-cmt-jpeg": true,
-        "pkg-dir_rtl-root-ltr": false,
-        "pkg-dir_rtl-root-unset": true,
-        "pkg-dir_unset-root-rtl": false,
-        "pkg-dir_unset-root-unset": true,
-        "pkg-dir-auto_root-rtl": null,
-        "pkg-dir-auto_root-unset": false
+    "name": "ACME Mini Programs",
+    "ref": "https://example.org/",
+    "variant" : "iOS",
+    "tests": {
+        "cnt-css-scoped-support": true,
+        "mnf-window-fullscreen-default": true,
+        "mnf-window-fullscreen-true": false,
+        "mnf-window-orientation-default": true,
+        "mnf-window-orientation-landscape": true,
+        "mnf-window-orientation-portrait": false,
+        "pck-pages-same-filenames": true,
+        "pck-root-app-css-empty": true        
     }
 }
 ```
@@ -236,10 +188,15 @@ directory and [implementation reports](#implementation-reports) in the `reports`
 
 The report consists of two HTML pages, namely:
 
-* A [test suite description](https://w3c.github.io/miniapp-tests/) that lists each test, split into one table per unique
+* A [test suite description](https://espinr.github.io/miniapp-tests/) that lists each test, split into one table per unique
   `dc:coverage` value. Each table has one row per test, showing the test's ID, title, description, back-links to the relevant
   normative statements in the spec, and links to the implementation results.
 
-* An [implementation report](https://w3c.github.io/miniapp-tests/results) that lists reading systems that have submitted test
+* An [implementation report](https://espinr.github.io/miniapp-tests/results) that lists MiniApp implementations that have submitted test
   results along with their results tables. Each table has one row per test and one column per implementation, with cells
   indicating whether the test passed, failed, or has not been run.
+
+
+## Acknowledgements
+
+This testing methodology is based on the [EPUB tests](https://w3c.github.io/epub-tests/), generated and maintained by the [EPUB 3 Working Group](https://www.w3.org/publishing/groups/epub-wg/). So, a big thanks to [Ivan Herman](https://www.w3.org/People/Ivan/), Dan Lazin, and the rest of [the group](https://www.w3.org/publishing/groups/epub-wg/).
