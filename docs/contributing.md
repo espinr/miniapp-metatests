@@ -172,8 +172,8 @@ Here is an example of a small test report:
         "mnf-window-orientation-default": true,
         "mnf-window-orientation-landscape": true,
         "mnf-window-orientation-portrait": false,
-        "pck-pages-same-filenames": true,
-        "pck-root-app-css-empty": true        
+        "pkg-pages-same-filenames": true,
+        "pkg-root-app-css-empty": true        
     }
 }
 ```

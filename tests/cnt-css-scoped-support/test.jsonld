@@ -11,6 +11,8 @@
   },
   "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
   "dcterms:rightsHolder": "https://www.w3.org",
+    "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+    "dcterms:rightsHolder": "https://www.w3.org",
   "@type": "earl:TestCase",
   "dc:coverage": "Content",
   "dcterms:conformsTo": "must",

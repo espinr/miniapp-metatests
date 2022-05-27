@@ -17,7 +17,7 @@
     "dc:creator": "Martin Alvarez",
     "dc:date": "2022-05-25",
     "dc:title": "Empty global app.css",
-    "dc:identifier": "pck-root-app-css-empty",
+    "dc:identifier": "pkg-root-app-css-empty",
     "dc:description": "The app.css global stylesheet may be empty. The app must be loaded.",
     "dcterms:isReferencedBy": [
       "https://www.w3.org/TR/miniapp-packaging/#root-directory"

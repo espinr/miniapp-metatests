@@ -75,7 +75,7 @@ export namespace Constants {
     /** Config file location */
     export const CONFIG_FILE: string = `${DOCS_DIR}/config.json`;
 
-    export const MINIAPP_MEDIA_TYPE: string = 'application/miniapp+zip';
+    export const MINIAPP_MEDIA_TYPE: string = 'application/miniapp-pkg+zip';
 }
 
 /**

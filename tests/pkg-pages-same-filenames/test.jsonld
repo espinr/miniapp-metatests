@@ -17,7 +17,7 @@
     "dc:creator": "Martin Alvarez",
     "dc:date": "2022-05-25",
     "dc:title": "A page with resources with same filename",
-    "dc:identifier": "pck-pages-same-filenames",
+    "dc:identifier": "pkg-pages-same-filenames",
     "dc:description": "The entry page includes three resources (.html, .css, and .js) with the same filename. The app must be loaded.",
     "dcterms:isReferencedBy": [
       "https://www.w3.org/TR/miniapp-packaging/#sec-pages-directory"
