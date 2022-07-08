@@ -9,7 +9,7 @@
         "mnf-window-orientation-default": true,
         "mnf-window-orientation-landscape": true,
         "mnf-window-orientation-portrait": true,
-        "pck-pages-same-filenames": false,
-        "pck-root-app-css-empty": true        
+        "pkg-pages-same-filenames": false,
+        "pkg-root-app-css-empty": true        
     }
 }
