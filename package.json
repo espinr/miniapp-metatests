@@ -19,7 +19,7 @@
   "author": "Ivan Herman, Dan Lazin, Martin Alvarez",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/espinr/miniapp-tests/issues"
+    "url": "https://github.com/espinr/miniapp-metatests/issues"
   },
   "homepage": "https://github.com/espinr/miniapp-tests#readme",
   "dependencies": {

@@ -31,14 +31,14 @@ TODO: List the MiniApp user agents.
 
 1. Find an untested normative statement in the MiniApp specifications ([MiniApp Packaging](https://w3c.github.io/miniapp-packaging/), [MiniApp Manifest](https://w3c.github.io/TR/miniapp-manifest/), and [MiniApp Lifecycle](https://w3c.github.io/TR/miniapp-lifecycle/)) specs to test — that is, a statement that does not have an expandable "tests" section. (Note that these links point at the working drafts of the spec on GitHub, not the published versions on w3.org; the published spec hides the "tests" sections. In the published versions, you can still see whether a statement is tested by checking whether its anchor element has a `data-tests` attribute.)
 
-1. Claim the normative statement by [creating an issue](https://github.com/espinr/miniapp-tests/issues/new) in the
-   [w3c/miniapp-tests](https://github.com/espinr/miniapp-tests/) repo.
+1. Claim the normative statement by [creating an issue](https://github.com/espinr/miniapp-metatests/issues/new) in the
+   [w3c/miniapp-tests](https://github.com/espinr/miniapp-metatests/) repo.
 
-1. If you are an owner of [w3c/miniapp-tests](https://github.com/espinr/miniapp-tests/), create a branch on that repo for your new
+1. If you are an owner of [w3c/miniapp-tests](https://github.com/espinr/miniapp-metatests/), create a branch on that repo for your new
    test. Otherwise, fork the repo and create a branch on your fork. (It's easier for reviewers to clone a PR to validate the
    test if it's in the original repo.)
 
-1. Within the branch, copy the [test template](https://github.com/espinr/miniapp-tests/tree/main/tests/xx-miniapp-template). Name your copy as explained in [naming](#naming) below.
+1. Within the branch, copy the [test template](https://github.com/espinr/miniapp-metatests/tree/main/tests/xx-miniapp-template). Name your copy as explained in [naming](#naming) below.
 
 1. Modify the template as necessary to implement the test.
 
@@ -90,7 +90,7 @@ The root directory for each test must contain a `test.jsonld` file with the foll
 
 * `dc:coverage`: Which section of the report the test should be listed in. The report has a separate table for each section
    to make it more readable. The current list of sections is listed in a
-   [JSON configuration file](https://github.com/espinr/miniapp-tests/blob/main/docs/drafts/config.json); if you add a new coverage
+   [JSON configuration file](https://github.com/espinr/miniapp-metatests/blob/main/docs/drafts/config.json); if you add a new coverage
    value, edit that JSON file in the same pull request to add the new value under the `coverage_labels`. That list should
    reflect the order of the corresponding sections in the MiniApp specification.
 
@@ -188,11 +188,11 @@ directory and [implementation reports](#implementation-reports) in the `reports`
 
 The report consists of two HTML pages, namely:
 
-* A [test suite description](https://espinr.github.io/miniapp-tests/) that lists each test, split into one table per unique
+* A [test suite description](https://espinr.github.io/miniapp-metatests/) that lists each test, split into one table per unique
   `dc:coverage` value. Each table has one row per test, showing the test's ID, title, description, back-links to the relevant
   normative statements in the spec, and links to the implementation results.
 
-* An [implementation report](https://espinr.github.io/miniapp-tests/results) that lists MiniApp implementations that have submitted test
+* An [implementation report](https://espinr.github.io/miniapp-metatests/results) that lists MiniApp implementations that have submitted test
   results along with their results tables. Each table has one row per test and one column per implementation, with cells
   indicating whether the test passed, failed, or has not been run.
 

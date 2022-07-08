@@ -19,7 +19,7 @@ export namespace Constants {
     export const TEST_RESULTS_TEMPLATE: string = `${TEST_RESULTS_DIR}/xx-template.json`;
 
     /** Base URL for the tests in the repository */
-    export const TEST_URL_BASE: string = 'https://github.com/espinr/miniapp-tests/tree/main/tests';
+    export const TEST_URL_BASE: string = 'https://github.com/espinr/miniapp-metatests/tree/main/tests';
 
     /** Location of the metadata JSONLD within the test directory */
     export const METADATA_FILE: string = 'test.jsonld';

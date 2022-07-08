@@ -6,9 +6,9 @@ This repository contains tests to validate the implementations of the W3C's Mini
 objective is to test every normative statement (that is, every
 [`MUST` or `SHOULD` or `MAY`](https://datatracker.ietf.org/doc/html/bcp14), etc.).
 
-The [test reports](https://espinr.github.io/miniapp-tests/) describe all the tests, including
-[implementation results](https://espinr.github.io/miniapp-tests/results) and
-[how to contribute](https://espinr.github.io/miniapp-tests/contributing).
+The [test reports](https://espinr.github.io/miniapp-metatests/) describe all the tests, including
+[implementation results](https://espinr.github.io/miniapp-metatests/results) and
+[how to contribute](https://espinr.github.io/miniapp-metatests/contributing).
 
 ## Acknowledgements
 
